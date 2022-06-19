@@ -1,0 +1,543 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- META SECTION -->
+        <title>Spruha</title>     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="icon" href="https://spruha.schoolelement.in//assets/img/nextelement_logo.png"  type="image/x-icon" />
+        <!-- END META SECTION -->
+
+        <!-- CSS INCLUDE -->       
+        <link rel="stylesheet" type="text/css"  href="assets/css/theme-default-parent.css?bcgdd"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css"  href="assets/css/custom.css?lat1212"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/parsley.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="https://spruha.schoolelement.in/assets/css/chung-timepicker.css"/> -->
+          <!-- Notify --> 
+        <link rel="stylesheet" type="text/css" href="assets/css/pnotify.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/pnotify.brighttheme.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/pnotify.buttons.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="" /> -->
+
+        <style type="text/css" href="css/buttons.bootstrap.min.css"></style>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-changes-style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/animate.min.css"/>
+        <!-- EOF CSS INCLUDE -->  
+<!-- 
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins.js"></script> -->
+
+        <script type="text/javascript" src="assets/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+        <!-- <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/bootstrap/bootstrap.min.js"></script> -->
+        <script type="text/javascript" src="assets/js/plugins.js"></script>    
+        <script type="text/javascript">
+            function gotoHelp(back_url, page_url) {
+              var form = document.createElement("form");
+              var element = document.createElement("input");
+              var element1 = document.createElement("input");
+
+              form.method = "POST";
+              form.action = "https://spruha.schoolelement.in/parent_controller/roboHelp_display";
+
+              element.value = back_url;
+              element.type = 'hidden';
+              element.name = "back_url";
+              form.appendChild(element);
+              element1.value = page_url;
+              element1.type = 'hidden';
+              element1.name = "page_url";
+              form.appendChild(element1);
+              // var sch_body = document.getElementById('schedules-data');
+              document.body.appendChild(form);
+              form.submit();
+            }
+
+            function fileViewer(back_url, page_url) {
+              var form = document.createElement("form");
+              var element = document.createElement("input");
+              var element1 = document.createElement("input");
+
+              form.method = "POST";
+              form.action = "https://spruha.schoolelement.in/parent_controller/viewer";
+
+              element.value = back_url;
+              element.type = 'hidden';
+              element.name = "back_url";
+              form.appendChild(element);
+              element1.value = page_url;
+              element1.type = 'hidden';
+              element1.name = "page_url";
+              form.appendChild(element1);
+              // var sch_body = document.getElementById('schedules-data');
+              document.body.appendChild(form);
+              form.submit();
+            }
+
+            function reloadIFrame() {
+                document.getElementById("i-frame").src = source;
+            }
+
+            var source = '';
+            var timerId;
+            function fileViewerModal(back_url, page_url) {
+              // var iframe = '<iframe class="holds-the-iframe" id="i-frame" width="100%" height="700" referrerpolicy="no-referrer" src="'+page_url+'" style="border:none;"></iframe>';
+              source = page_url;
+              $("#i-frame").src = page_url;
+              $("#viewer-modal").modal('show');
+              // $("#viewer-file").html(iframe);
+
+              timerId = setInterval("reloadIFrame();", 2000);
+            }
+
+            function emptyIFrame() {
+              window.top.$('#i-frame').attr('src','about:blank');
+              $("#i-frame").src = '';
+              source = '';
+            }
+
+            $(document).ready(function (){
+              $('#i-frame').on('load', function() {
+                console.log('Loaded: ')
+                  clearInterval(timerId);
+              });
+            });
+        </script>    
+        <style type="text/css">
+          .holds-the-iframe {
+              background:url(../../assets/img/loading-circle-gif.gif) center center no-repeat;
+          }
+        </style>
+
+        <!-- END PLUGINS -->
+    </head>
+    <body>
+
+      <div id="viewer-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="margin:auto;">
+          <div class="modal-content" style="width:70%;margin:auto;border-radius: .75rem;">
+            <div class="modal-header" style="border-top-right-radius: .75rem;border-top-left-radius: .75rem;">
+                <h4 class="modal-title" id="modalHeader">File</span></h4>
+                <button type="button" onclick="emptyIFrame()" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fa fa-times" aria-hidden="true" style="color: #d80403;font-size: 21px;"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="viewer-file" style='position:relative;'>
+                <div style='background-color:#ffffff; height: 4rem; position: absolute; right:14px; top:14px; width: 4rem;z-index: 2147483647;'> </div>
+                  <iframe class="holds-the-iframe" id="i-frame" width="100%" style="height: 95vh; width: 100%" referrerpolicy="no-referrer" src="" style="border:none;"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><div class="card cd-border" style="background: url('assets/img/enquiry_background_template.jpg');background-size: cover;background-position: top; background-repeat: no-repeat;height: 100vh;">
+  <div class="card-body">
+    <div class="row m-0">
+      <div class="col-md-7">
+        <div class="p-5">
+          <h1 style="font-weight: bold; font-size:42px;">HAVE SOME QUESTIONS ?</h1>
+        </div>
+        <div class="px-5">
+          <div class="row m-0">
+            <div class="col-md-2 pr-0">
+              <img width='75' src="images/logo.jpg">
+            </div>
+            <div class="col-md-6 pl-0">
+              <span style=" font-size:24px;">
+                Spruha              </span>
+              <br>
+              <span>
+                IH Complex #2,3 , 3rd floor, Ullal Main Road 
+                <br>
+                 Jnanajyothinagar, Bengaluru-560056. 
+              </span>
+            </div>
+            <div class="col-md-12 mt-3">
+              <p>
+                              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-5" >
+        <form method="post" class="form-horizontal" action='https://spruha.schoolelement.in/enquiry/users/submit_enquiry' data-parsley-validate="">
+          <input type="hidden" name="created_by" value="">
+          <div style="padding:10px; border: solid 1px #ffb606;background-color: white;border-radius: 2rem;">
+            <div class="card-body overflow-auto" id="contentId" style="max-height: 90vh;">
+              <div class="login-title mb-4">
+                <center>
+                  <h2>
+                    Enquiry form for admission                  </h2>
+                </center>
+              </div>
+              
+<div class="form-group">
+  <label class=" col-md-12"><b>Academic Year <font color="red">*</font></b></label>
+  <div class="col-md-12">
+    <select class="form-control" onchange="onchange_acadyear()" id="acadYearId" name="academic_year">
+      <option value='22' selected>2022-23</option><option value='23' >2023-24</option><option value='24' >2024-25</option>    </select>
+  </div>
+</div>
+
+  <div class="form-group">
+    <label class=" col-md-12"><b>Student's name <font color="red">*</font></b> </label>
+    <div class="col-md-12">
+      <input type="text" required="" name="student_name" placeholder="Enter Student's name" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-3" for="gender"><b>Gender <font color="red">*</font></b> </label>
+    <div class="col-md-9">
+        <label class="radio-inline pt-0" for="gender-0">
+            <input type="radio" data-parsley-group="block1" class="gender-radio" name="gender" id="gender-0" value="M" checked>
+            Male
+        </label>
+        <label class="radio-inline pt-0" for="gender-1">
+            <input type="radio"  data-parsley-group="block1" class="gender-radio" name="gender" id="gender-1" value="F">
+            Female
+        </label>
+        <label class="radio-inline pt-0" for="gender-2">
+            <input type="radio"  data-parsley-group="block1" class="gender-radio" name="gender" id="gender-2" value="O">
+            Others
+        </label>
+    </div>
+  </div>
+
+      <div class="form-group">
+      <label class="col-md-12 " for="student_dob"><b>Date of Birth <font color="red">*</font></b> </label>  
+      <div class="col-md-12">
+        <div class="input-group">
+         <input type="text" required  autocomplete="off" class="form-control date_pick" id="dob_dtpicker"  name="student_dob"  placeholder="Enter date of birth"> 
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+        <span class="help-block">As per the records. Format should be dd-mm-yyyy</span>
+        <span class="help-block">Temp DOB Instruction</span>
+      </div>
+    </div>
+  
+  <div class="form-group" id="age_dispaly" style="display: none;">
+    <label class="col-md-12 "><b>Age as on 31st May <span id="acadmicYear"></b> </label>
+    <div class="col-md-12">
+      <label class="" id="age"></label>
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-md-12 "><b>Parent's name <font color="red">*</font></b> </label>
+    <div class="col-md-12">
+      <input type="text" name="parent_name" required="" placeholder="Father / Mother /Guardian name" class="form-control">
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-md-12 "><b>Mobile number <font color="red">*</font></b> </label>
+    <div class="col-md-12">
+      <input type="text" name="mobile_number" required="" placeholder="Enter mobile number" class="form-control">
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+    <label class="col-md-12 "><b>Email id <font color="red">*</font></b> </label>
+    <div class="col-md-12">
+      <input type="email" name="email" placeholder="Enter Email-id" required class="form-control">
+    </div>
+  </div>
+
+
+      <div class="form-group">
+      <label class="col-md-12 " for="class"><b>Grade applied for </b> </label>  
+      <div class="col-md-12">
+        <select class="form-control" id="class_name"  name="class_name">
+          <option value="">Select Grade</option>
+        </select>
+        <span class="help-block">Grade for which admission is being sought</span>
+      </div>
+    </div>
+  
+     
+
+  
+  
+  
+<style type="text/css">
+  @media only screen and (max-width: 768px){
+    input[class=gender-radio] {
+      margin: 1px -14px -6px;
+    }
+    input[name=has_sibling] {
+      margin: 0px 3px 0;
+    }
+    input[name=sibling_in] {
+      margin: 1px 0px 0px;
+    }
+  }
+  .col-md-12{
+    padding-left: 10px;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+    onchange_acadyear()
+    $('.date_pick').datepicker({
+      format: 'd-m-yyyy',
+      "autoclose": true
+    });
+  });
+
+  function onchange_acadyear() {
+    var acadYearId = $('#acadYearId').val();
+    $.post('https://spruha.schoolelement.in/enquiry/users/get_class_sections',{acadYearId:acadYearId},function(data){
+      var cls_section = $.parseJSON(data);
+      var output = '<option>Select Class </option>';
+      var len=cls_section.length;
+      for (var i=0,j=len; i < j; i++) {
+        output +='<option value="'+cls_section[i].id+'">'+cls_section[i].class_name+'</option>';
+      };
+      $('#class_name').html(output);
+    });
+  }
+
+  $("#get_others_name").change(function(){
+    var selected = $(this).val();
+    if(selected == 'Others') {
+      $("#known-div").show();
+      $("#known_by").attr('required', true);
+    } else {
+      $("#known_by").attr('required', false);
+      $("#known-div").hide();
+    }
+  });
+
+  $('input[type=radio][name=has_sibling]').change(function() {
+    if (this.value == 'yes') {
+      $("#in_school").show();
+    } else {
+      $("#in_school").hide();
+    }
+  });
+
+  $('input[type=radio][name=sibling_in]').change(function() {
+    if (this.value == 'other') {
+      $("#sibling_data").show();
+      $("#sibling_studying").prop('required', true);
+    } else {
+      $("#sibling_data").hide();
+      $("#sibling_studying").prop('required', false);
+    }
+  });
+</script>
+              <input type="hidden" name="source" id="source" value="Website">
+              <div class="form-group">
+                <center>
+                  <button type="submit" class="btn px-5 mt-4" style="background-color:#ffe23c;border-color:#ffe23c;color:black;border-radius:1rem">Submit Enquiry</button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </form>        
+      </div>
+    </div>
+  </div>
+  <div class="card-footer panel_footer_new">
+          <center>
+        Powered by NextElement      </center>
+      </div>  
+</div>
+
+<style type="text/css">
+
+  #contentId{
+    /* top: 22%; */
+    /* width: 100%; */
+    /* background: #e5e5e5; */
+    /* border: 2px solid #e5e5e5; */
+    /* border-radius: 30px; */
+    padding: 5px 35px;
+    margin: 13px;
+  }
+
+
+</style>
+<style> 
+  ::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #000 !important;
+  } 
+    
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+      color: #000 !important;
+  } 
+    
+  ::-ms-input-placeholder { /* Microsoft Edge */ 
+      color: #000 !important;
+  }
+  #get_others_name{
+     color: #000 !important;
+  }
+  #class_name{
+     color: #000 !important;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 1px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffb606;
+}
+</style> 
+
+
+ 
+ 
+ 
+                                     <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <!--  <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div> -->
+                    <div class="mb-content">
+                        <!-- <img width="100px" src="/nextelement-common/door.png">           -->
+                       <!--  <p>Press No if youwant to continue work. Press Yes to logout current user.</p> -->
+                        <div class="pull-right text-center">
+                            <p style="color: #000; font-size: 18px; margin-bottom: 28px;">Are you sure you want to log out?</p>
+                            <a  style="background-color: #6893CA;border-radius:4px;border-color: #6893CA;" class="btn btn-success btn-lg mb-control-close margin_mobile">No</a>
+                            <a  style="border-radius:4px;" href="https://spruha.schoolelement.in/auth/logout" class="btn btn-secondary btn-lg margin_mobile">Yes</a>
+                        </div>
+                    </div>
+                    <!-- <div class="mb-footer" style="padding: 0;">
+                             
+                       
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <style type="text/css">
+            .message-box .mb-container{
+                background: #fff;
+            }
+            .x-navigation li.active > a{
+                background: #00701a;
+            }
+
+            @media (max-width: 768px) {
+                .message-box .mb-container .mb-middle{
+                    width: 100%;
+                    padding: 0;
+                    margin-left: -25%;
+                }
+            }
+
+           
+
+        </style>
+        <!-- END MESSAGE BOX-->
+
+        <script type="text/javascript">
+            function add_scroller(container_id) {
+                var container = document.getElementById(container_id);
+                if(container.clientWidth < container.scrollWidth) {
+                    $("#range-input").html(`<input type="range" class="form-control-range" id="formControlRange" oninput="scroll_report('${container_id}', this.value)" min="0" max="${container.scrollWidth - container.clientWidth}" value="0">`);
+                } else {
+                    $("#range-input").html('');
+                }
+            }
+
+            function scroll_report(container_id, scrollTo) {
+                var container = document.getElementById(container_id);
+                var scroll_value = scrollTo - container.scrollLeft;
+                container.scrollLeft += scroll_value;
+            }
+        </script>
+
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/cookie_handler.js"></script>
+        <!-- Animation CDN link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!-- Use this website for more animation styles https://animate.style/#documentation-->
+
+        <!-- START THIS PAGE PLUGINS-->        
+        <script type='text/javascript' src='assets/js/plugins/icheck/icheck.min.js'></script>        
+        <script type="text/javascript" src="assets/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+       
+        <script type='text/javascript' src='assets/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+        <script type="text/javascript" src="assets/js/plugins/owl/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/moment.min.js"></script>
+
+        <script type="text/javascript" src="assets/js/plugins/bootstrap/bootstrap-select.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugins/bootstrap/bootbox.min.js"></script>
+        <!-- END THIS PAGE PLUGINS-->
+        
+        <!--  For Datatables -->
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/buttons.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/buttons.flash.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/jszip.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/datatables/buttons.print.min.js"></script>
+        
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/actions.js"></script>
+                
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/parsley.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/common/multiselect.min.js"></script>
+        <!-- <script type='text/javascript' src='https://spruha.schoolelement.in/assets/js/chung-timepicker.js'></script>  -->
+        <script type='text/javascript' src='https://spruha.schoolelement.in/assets/js/pnotify.js'></script>
+        <script type='text/javascript' src='https://spruha.schoolelement.in/assets/js/pnotify.buttons.js'></script> 
+        
+        <!--For Calendar-->
+        <script type="text/javascript" src="https://spruha.schoolelement.in/assets/js/monthly.js"></script>
+        <!-- End For Calendar-->
+        
+        <script type="text/javascript">
+        $('#demo-form').parsley();
+        </script>
+
+        
+        <script type="text/javascript">
+            var $form = $('#demo-form');
+            $('.submitFormSingleClick').click (function () {
+                // var TotalComponentAmount = $('#onkeyupTotalComponentAmount').val();
+                var TotalComponentAmount = $('#tEnt_amount').html();
+                var EnterAmount = $('#tAmount').val();
+                if (TotalComponentAmount == EnterAmount) {
+                    if ($form.parsley().validate()){
+                      $(this).val('Please wait ...').attr('disabled','disabled');
+                      $('#demo-form').submit(); 
+                    }
+                }else{
+                    $('#payAmount').prop('disabled',true);
+                    $('#error_message').html('We found a problem with network OR system being used. Try generating the fee receipt again with the same or using a different browser. <a href="https://spruha.schoolelement.in/feesv2/fees_collection"> Goto Fee collection </a>');
+                    return false;
+                }
+                
+            });
+
+            var $form1 = $('#sales-form');
+            $('.submitSalesFormSingleClick').click (function () {
+                if ($form1.parsley().validate()){
+                  $(this).val('Please wait ...').attr('disabled','disabled');
+                  $('#sales-form').submit(); 
+                }
+            });
+        </script>
+    </body>
+</html>
