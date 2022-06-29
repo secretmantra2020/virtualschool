@@ -123,7 +123,17 @@
         <!-- END PLUGINS -->
     </head>
     <body>
+	<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZQhGOrscsbETOnDqjk2JQbcnzo1VlXUVb6tnvZztRgzgyYw/viewform?embedded=true" width="640" height="1803" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScq04WKJwDse0QUNIDVezm2cxaT0xWRImjBUGIBg2jIRZxpBA/viewform?embedded=true" width="640" height="1771" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+ -->
+	<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZQhGOrscsbETOnDqjk2JQbcnzo1VlXUVb6tnvZztRgzgyYw/viewform?usp=sf_link" 
+        width="550" height="600" 
+        frameborder="0" marginheight="0"
+        marginwidth="0">
+        Loading…
+    </iframe> -->
       <div id="viewer-modal" class="modal fade" role="dialog">
         <div class="modal-dialog" style="margin:auto;">
           <div class="modal-content" style="width:70%;margin:auto;border-radius: .75rem;">
@@ -145,25 +155,18 @@
       </div><div class="card cd-border" style="background: url('assets/img/enquiry_background_template.jpg');background-size: cover;background-position: top; background-repeat: no-repeat;height: 100vh;">
   <div class="card-body">
     <div class="row m-0">
-      <div class="col-md-7">
+      <div class="col-md-5">
         <div class="p-5">
           <h1 style="font-weight: bold; font-size:42px;">HAVE SOME QUESTIONS ?</h1>
         </div>
         <div class="px-5">
           <div class="row m-0">
             <div class="col-md-2 pr-0">
+			<a href="https://virtualschoolindia.com/">
               <img width='75' src="images/logo.jpg">
+			  </a>
             </div>
-            <div class="col-md-6 pl-0">
-              <span style=" font-size:24px;">
-                VSI              </span>
-              <br>
-              <span>
-                IH Complex #2,3 , 3rd floor, Ullal Main Road 
-                <br>
-                 Jnanajyothinagar, Bengaluru-560056. 
-              </span>
-            </div>
+
             <div class="col-md-12 mt-3">
               <p>
                               </p>
@@ -172,185 +175,11 @@
 
         </div>
       </div>
-      <div class="col-md-5" >
-        <form method="post" class="form-horizontal" action='https://spruha.schoolelement.in/enquiry/users/submit_enquiry' data-parsley-validate="">
-          <input type="hidden" name="created_by" value="">
-          <div style="padding:10px; border: solid 1px #ffb606;background-color: white;border-radius: 2rem;">
-            <div class="card-body overflow-auto" id="contentId" style="max-height: 90vh;">
-              <div class="login-title mb-4">
-                <center>
-                  <h2>
-                    Enquiry form for admission                  </h2>
-                </center>
-              </div>
-              
-<div class="form-group">
-  <label class=" col-md-12"><b>Academic Year <font color="red">*</font></b></label>
-  <div class="col-md-12">
-    <select class="form-control" onchange="onchange_acadyear()" id="acadYearId" name="academic_year">
-      <option value='22' selected>2022-23</option><option value='23' >2023-24</option><option value='24' >2024-25</option>    </select>
-  </div>
-</div>
-
-  <div class="form-group">
-    <label class=" col-md-12"><b>Student's name <font color="red">*</font></b> </label>
-    <div class="col-md-12">
-      <input type="text" required="" name="student_name" placeholder="Enter Student's name" class="form-control">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-md-3" for="gender"><b>Gender <font color="red">*</font></b> </label>
-    <div class="col-md-9">
-        <label class="radio-inline pt-0" for="gender-0">
-            <input type="radio" data-parsley-group="block1" class="gender-radio" name="gender" id="gender-0" value="M" checked>
-            Male
-        </label>
-        <label class="radio-inline pt-0" for="gender-1">
-            <input type="radio"  data-parsley-group="block1" class="gender-radio" name="gender" id="gender-1" value="F">
-            Female
-        </label>
-        <label class="radio-inline pt-0" for="gender-2">
-            <input type="radio"  data-parsley-group="block1" class="gender-radio" name="gender" id="gender-2" value="O">
-            Others
-        </label>
-    </div>
-  </div>
-
-      <div class="form-group">
-      <label class="col-md-12 " for="student_dob"><b>Date of Birth <font color="red">*</font></b> </label>  
-      <div class="col-md-12">
-        <div class="input-group">
-         <input type="text" required  autocomplete="off" class="form-control date_pick" id="dob_dtpicker"  name="student_dob"  placeholder="Enter date of birth"> 
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-        </div>
-        <span class="help-block">As per the records. Format should be dd-mm-yyyy</span>
-        <span class="help-block">Temp DOB Instruction</span>
-      </div>
-    </div>
-  
-  <div class="form-group" id="age_dispaly" style="display: none;">
-    <label class="col-md-12 "><b>Age as on 31st May <span id="acadmicYear"></b> </label>
-    <div class="col-md-12">
-      <label class="" id="age"></label>
-    </div>
-  </div>
-    <div class="form-group">
-    <label class="col-md-12 "><b>Parent's name <font color="red">*</font></b> </label>
-    <div class="col-md-12">
-      <input type="text" name="parent_name" required="" placeholder="Father / Mother /Guardian name" class="form-control">
-    </div>
-  </div>
-    <div class="form-group">
-    <label class="col-md-12 "><b>Mobile number <font color="red">*</font></b> </label>
-    <div class="col-md-12">
-      <input type="text" name="mobile_number" required="" placeholder="Enter mobile number" class="form-control">
-    </div>
-  </div>
-
-  
-  <div class="form-group">
-    <label class="col-md-12 "><b>Email id <font color="red">*</font></b> </label>
-    <div class="col-md-12">
-      <input type="email" name="email" placeholder="Enter Email-id" required class="form-control">
-    </div>
-  </div>
-
-
-      <div class="form-group">
-      <label class="col-md-12 " for="class"><b>Grade applied for </b> </label>  
-      <div class="col-md-12">
-        <select class="form-control" id="class_name"  name="class_name">
-          <option value="">Select Grade</option>
-        </select>
-        <span class="help-block">Grade for which admission is being sought</span>
-      </div>
-    </div>
-  
-     
-
-  
-  
-  
-<style type="text/css">
-  @media only screen and (max-width: 768px){
-    input[class=gender-radio] {
-      margin: 1px -14px -6px;
-    }
-    input[name=has_sibling] {
-      margin: 0px 3px 0;
-    }
-    input[name=sibling_in] {
-      margin: 1px 0px 0px;
-    }
-  }
-  .col-md-12{
-    padding-left: 10px;
-  }
-</style>
-<script type="text/javascript">
-  $(document).ready(function(){
-    onchange_acadyear()
-    $('.date_pick').datepicker({
-      format: 'd-m-yyyy',
-      "autoclose": true
-    });
-  });
-
-  function onchange_acadyear() {
-    var acadYearId = $('#acadYearId').val();
-    $.post('https://spruha.schoolelement.in/enquiry/users/get_class_sections',{acadYearId:acadYearId},function(data){
-      var cls_section = $.parseJSON(data);
-      var output = '<option>Select Class </option>';
-      var len=cls_section.length;
-      for (var i=0,j=len; i < j; i++) {
-        output +='<option value="'+cls_section[i].id+'">'+cls_section[i].class_name+'</option>';
-      };
-      $('#class_name').html(output);
-    });
-  }
-
-  $("#get_others_name").change(function(){
-    var selected = $(this).val();
-    if(selected == 'Others') {
-      $("#known-div").show();
-      $("#known_by").attr('required', true);
-    } else {
-      $("#known_by").attr('required', false);
-      $("#known-div").hide();
-    }
-  });
-
-  $('input[type=radio][name=has_sibling]').change(function() {
-    if (this.value == 'yes') {
-      $("#in_school").show();
-    } else {
-      $("#in_school").hide();
-    }
-  });
-
-  $('input[type=radio][name=sibling_in]').change(function() {
-    if (this.value == 'other') {
-      $("#sibling_data").show();
-      $("#sibling_studying").prop('required', true);
-    } else {
-      $("#sibling_data").hide();
-      $("#sibling_studying").prop('required', false);
-    }
-  });
-</script>
-              <input type="hidden" name="source" id="source" value="Website">
-              <div class="form-group">
-                <center>
-                  <button type="submit" class="btn px-5 mt-4" style="background-color:#ffe23c;border-color:#ffe23c;color:black;border-radius:1rem">Submit Enquiry</button>
-                </center>
-              </div>
-            </div>
-          </div>
-        </form>        
-      </div>
+      <div class="col-md-7" >
+	  
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZQhGOrscsbETOnDqjk2JQbcnzo1VlXUVb6tnvZztRgzgyYw/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+	  
+	  </div>
     </div>
   </div>
   <div class="card-footer panel_footer_new">
